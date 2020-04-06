@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+  <%- include('partial/_head'); %>
+  <body>
+    <%- include('partial/_nav', {current: 'profile'}); %>
+    <main>
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-md-4">
+            <img class="d-block mx-auto rounded-circle my-5" src="img/profile.jpg" style="max-width: 80%;">
+          </div>
+          <div class="col-12 col-md-8">
+            <h1 class="text-center">Shiori Ueda</h1>
+            <div>
+              <h2>profile</h2>
+              <p>
+                1999年生まれ。慶應義塾大学理工学部に在籍中。<br>
+                2018年の秋頃から写真を始め、写真の虜となってしまいました。
+                特にポートレートが好きで、主に東京都内でポートレート撮影をしています。
+                2020年からは、<a href="https://bigakusei.com/">美学生図鑑</a>にカメラマンとして所属し活動しています。<br>
+                ご連絡の際は、下記のsnsのダイレクトメッセージにてお願いします。<br>
+                SNS:
+                <a href="https://www.instagram.com/sh_photo27">instagram</a>
+                <a href="https://www.twitter.com/sh_photo27">twitter</a>
+              </p>
+            </div>
+            <div>
+              <h2>about this site</h2>
+              <p>
+                このサイトは Shiori Ueda によるギャラリーサイトです。
+                「デジタルな、自分の写真集を作ってみたい」という思いでこのサイトを制作しました。
+                ポートフォリオというよりも娯楽的な目的で作ったので、楽しんで写真を見ていただければ幸いです。
+                掲載されている写真はもちろん、コーディングやデザインも全て私によるものです。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <%- include('partial/_footer'); %>
+  </body>
+</html>

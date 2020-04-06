@@ -1,6 +1,6 @@
-<% var activeNavItem = 'class="nav-item active"'; -%>
-<% var navItem = 'class="nav-item"'; -%>
-<% var srCurrent = '<span class="sr-only">(current)</span>'; -%>
+<% var activeNavItem = 'class="nav-item active"'; %>
+<% var navItem = 'class="nav-item"'; %>
+<% var srCurrent = '<span class="sr-only">(current)</span>'; %>
 
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -10,17 +10,17 @@
   </button>
   <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
     <ul class="navbar-nav navbar-fixed-top">
-      <li <% (current == 'index') ? activeNavItem : navItem %> >
-        <a class="nav-link" href="index.html">home<% (current == 'index') ? srCurrent : '' %></a>
+      <li <%- (current == 'index') ? activeNavItem : navItem %>>
+        <a class="nav-link" href="index.html">home<%- (current == 'index') ? srCurrent : '' %></a>
       </li>
-      <li <% (current == 'portraits') ? activeNavItem : navItem %>>
-        <a class="nav-link" href="portraits.html">portraits<% (current == 'index') ? srCurrent : '' %></a>
+      <li <%- (current == 'portraits') ? activeNavItem : navItem %>>
+        <a class="nav-link" href="portraits.html">portraits<%- (current == 'portraits') ? srCurrent : '' %></a>
       </li>
-      <li <% (current == 'works') ? activeNavItem : navItem %>>
-        <a class="nav-link" href="works.html">works<% (current == 'index') ? srCurrent : '' %></a>
+      <li <%- (current == 'works') ? activeNavItem : navItem %>>
+        <a class="nav-link" href="works.html">works<%- (current == 'works') ? srCurrent : '' %></a>
       </li>
-      <li <% (current == 'about') ? activeNavItem : navItem %>>
-        <a class="nav-link" href="about.html">about<% (current == 'index') ? srCurrent : '' %></a>
+      <li <%- (current == 'profile') ? activeNavItem : navItem %>>
+        <a class="nav-link" href="profile.html">profile<%- (current == 'profile') ? srCurrent : '' %></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="https://www.instagram.com/sh_photo27">instagram</a>
