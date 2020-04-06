@@ -1,0 +1,25 @@
+{
+  "name": "photoalbum",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-ejs": "^5.0.0",
+    "gulp-rename": "^2.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sh1027/photoalbum.git"
+  },
+  "author": "shiori ueda",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sh1027/photoalbum/issues"
+  },
+  "homepage": "https://github.com/sh1027/photoalbum#readme"
+}
