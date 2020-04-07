@@ -3,6 +3,10 @@ body{
 	font-size: 16px;
 }
 
+img{
+	width: 100%;
+}
+
 .profile-img{
 	max-width: 80%;
 	height: auto;
