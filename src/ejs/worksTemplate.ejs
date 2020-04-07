@@ -1,6 +1,8 @@
 <% var data = jsonData; %><!doctype html>
 <html>
-  <%- include('partial/_head'); %>
+  <%- include('partial/_head', {
+    pageId: data.id
+  }); %>
   <body>
     <%- include('partial/_nav', {
       current: page.name

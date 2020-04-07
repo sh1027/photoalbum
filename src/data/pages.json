@@ -1,26 +1,38 @@
 {
   "index": {
     "name": "index",
-    "relativePath": "/index.html"
+    "temp": false,
+    "relativePath": "/index.html",
+    "img": "/img/profile.jpg"
   },
   "portraits": {
     "name": "portraits",
-    "relativePath": "/portraits.html"
+    "temp": false,
+    "relativePath": "/portraits.html",
+    "img": "/img/profile.jpg"
   },
   "works": {
     "name": "works",
-    "relativePath": "/works.html"
+    "temp": false,
+    "relativePath": "/works.html",
+    "img": "/img/profile.jpg"
   },
   "profile": {
     "name": "profile",
-    "relativePath": "/profile.html"
+    "temp": false,
+    "relativePath": "/profile.html",
+    "img": "/img/profile.jpg"
   },
   "portraitsTemplate": {
     "name": "portraits",
-    "relativePath": "/portraits/<%- data.id %>.html"
+    "temp": true,
+    "relativePath": "/portraits/",
+    "img": "/img/portraits/"
   },
   "worksTemplate": {
     "name": "works",
-    "relativePath": "/works/<%- data.id %>.html"
+    "temp": true,
+    "relativePath": "/works/",
+    "img": "/img/works/"
   }
 }
