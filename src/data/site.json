@@ -1,0 +1,11 @@
+{
+  "name": "shiori digital photo album",
+  "description": "Shiori Uedaによるdigitalな写真集です。主に東京都内でポートレート撮影をしています。楽しんで写真を見ていただければ幸いです。コンタクトは各種SNSのDMにてお願いします。",
+  "keywords": "Site Keyword1, Site Keyword2",
+  "rootPath": "/photoalbum",
+  "rootUrl": "https://sh1027.github.io/photoalbum",
+  "twitterCard": "summary_large_image",
+  "twitterSite": "@sh_photo27",
+  "icoIcon": "*.ico",
+  "pngIcon": "180×180.png"
+}

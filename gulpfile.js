@@ -1,15 +1,21 @@
 // plugin
-var gulp = require("gulp"),
-    fs = require('fs'),
-    ejs = require("gulp-ejs"),
-    rename = require('gulp-rename');
+const gulp = require("gulp"),
+      fs = require('fs'),
+      ejs = require("gulp-ejs"),
+      rename = require('gulp-rename');
+
+// json
+const siteFile = './src/data/site.json',
+      siteMeta = JSON.parse(fs.readFileSync(siteFile, 'utf8')),
+      pagesFile = './src/data/pages.json'
+      pageMetaList = JSON.parse(fs.readFileSync(pagesFile, 'utf8'))
 
 // watch
 gulp.task( "default", function() {
   gulp.watch("./src/ejs/**/*.ejs", gulp.series("ejs"));
 });
 
-// Index and Profile EJS
+// index EJS
 gulp.task("ejs", function() {
   return gulp.src(["./src/ejs/**/*.ejs", '!' + "./src/ejs/**/_*.ejs"])
     .pipe(ejs())
@@ -28,6 +34,8 @@ gulp.task("works", function(done){
 
   gulp.src(listFile)
     .pipe(ejs({
+      siteMeta: siteMeta,
+      pageMeta: pageMetaList.works,
       jsonDataList: pages
     }))
     .pipe(rename({extname: '.html'}))
@@ -38,6 +46,8 @@ gulp.task("works", function(done){
 
     gulp.src(tempFile)
       .pipe(ejs({
+        siteMeta: siteMeta,
+        pageMeta: pageMetaList.worksTemplate,
         jsonData: pages[i]
       }))
       .pipe(rename(id + '.html'))

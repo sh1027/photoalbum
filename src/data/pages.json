@@ -1,0 +1,20 @@
+{
+  "index": {
+    "name": "index"
+  },
+  "portraits": {
+    "name": "portraits"
+  },
+  "works": {
+    "name": "works"
+  },
+  "profile": {
+    "name": "profile"
+  },
+  "portraitsTemplate": {
+    "name": "portraits"
+  },
+  "worksTemplate": {
+    "name": "works"
+  }
+}

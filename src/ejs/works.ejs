@@ -2,14 +2,16 @@
 <html>
   <%- include('partial/_head'); %>
   <body>
-    <%- include('partial/_nav', {current: 'works'}); %>
+    <%- include('partial/_nav', {
+      current: page.name,
+    }); %>
     <main>
       <div class="container">
         <div class="row">
           <% for (var i = 0; i < dataList.length; i++) { %>
-          <a href="/works/<%= dataList[i].id %>.html" class="card">
+          <a href="<%= site.rootPath; %>/works/<%= dataList[i].id %>.html" class="card">
             <div class="card-block img-guard"><span class="guard-nopic"></span>
-              <img class="card-img" src="/img/works/<%= dataList[i].id %>/1.jpg" alt="<%= dataList[i].name %>"
+              <img class="card-img" src="<%= site.rootPath; %>/img/works/<%= dataList[i].id %>/1.jpg" alt="<%= dataList[i].name %>"
               oncontextmenu="return false;" onselectstart="return false;" onmousedown="return false;">
             </div>
           </a>
