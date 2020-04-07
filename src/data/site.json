@@ -6,6 +6,6 @@
   "rootUrl": "https://sh1027.github.io/photoalbum",
   "twitterCard": "summary_large_image",
   "twitterSite": "@sh_photo27",
-  "icoIcon": "*.ico",
-  "pngIcon": "180×180.png"
+  "icoIcon": "/img/*.ico",
+  "pngIcon": "/img/180×180.png"
 }
