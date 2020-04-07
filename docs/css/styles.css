@@ -8,6 +8,10 @@ body{
 	height: auto;
 }
 
+.img{
+	width: 100%;
+}
+
 /* 画像の保存防止用 */
 .img-guard{
 	position:relative;
