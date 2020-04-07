@@ -12,15 +12,74 @@ const siteFile = './src/data/site.json',
 
 // watch
 gulp.task( "default", function() {
-  gulp.watch("./src/ejs/**/*.ejs", gulp.series("ejs"));
+  gulp.watch("", gulp.parallel("index"));
+  gulp.watch("", gulp.parallel("profile"));
+  gulp.watch("", gulp.parallel("works"));
+  gulp.watch("", gulp.parallel("portraits"));
 });
 
-// index EJS
-gulp.task("ejs", function() {
-  return gulp.src(["./src/ejs/**/*.ejs", '!' + "./src/ejs/**/_*.ejs"])
-    .pipe(ejs())
+// Index EJS
+gulp.task("index", function() {
+  var ejsFile = './src/ejs/index.json'
+
+  gulp.src([ejsFile])
+    .pipe(ejs({
+      siteMeta: siteMeta,
+      pageMeta: pageMetaList.index
+    }))
     .pipe(rename({extname: '.html'}))
     .pipe(gulp.dest("./docs"));
+
+  done();
+});
+
+// Profile EJS
+gulp.task("profile", function(done) {
+  var ejsFile = './src/ejs/profile.json'
+
+  gulp.src([ejsFile])
+    .pipe(ejs({
+      siteMeta: siteMeta,
+      pageMeta: pageMetaList.profile
+    }))
+    .pipe(rename({extname: '.html'}))
+    .pipe(gulp.dest("./docs"));
+
+  done();
+});
+
+// Portraits EJS
+gulp.task("portraits", function(done){
+  var jsonFile = './src/data/portraits.json',
+      listFile = './src/ejs/portraits.ejs',
+      tempFile = './src/ejs/portraitsTemplate.ejs',
+      json = JSON.parse(fs.readFileSync(jsonFile, 'utf8')),
+      pages = json.pages,
+      id;
+
+  gulp.src(listFile)
+    .pipe(ejs({
+      siteMeta: siteMeta,
+      pageMeta: pageMetaList.portraits,
+      jsonDataList: pages
+    }))
+    .pipe(rename({extname: '.html'}))
+    .pipe(gulp.dest("./docs"));
+
+  for (var i = 0; i < pages.length; i++) {
+    id = pages[i].id;
+
+    gulp.src(tempFile)
+      .pipe(ejs({
+        siteMeta: siteMeta,
+        pageMeta: pageMetaList.portraitsTemplate,
+        jsonData: pages[i]
+      }))
+      .pipe(rename(id + '.html'))
+      .pipe(gulp.dest('./docs/portraits'));
+  }
+
+  done();
 });
 
 // Works EJS
