@@ -11,12 +11,12 @@
           <% var imgNum = data.imgNum; %>
           <% for (var i = 1; i <= imgNum; i++) { %>
           <div class="img-guard"><span class="guard-nopic"></span>
-            <img class="card-img　" src="<%= site.rootPath; %>/img/works/<%= data.id %>/<%= i %>.jpg" alt="<%= data.name + i %>"
+            <img class="card-img　" src="<%- site.rootPath %>/img/works/<%- data.id %>/<%- i %>.jpg" alt="<%- data.name + i %>"
             oncontextmenu="return false;" onselectstart="return false;" onmousedown="return false;">
           </div>
           <% } %>
           <p>
-            link: <a href="<%= data.site %>"><%= data.site %></a>
+            link: <a href="<%- data.site %>"><%- data.site %></a>
           </p>
         </div>
       </div>

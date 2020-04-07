@@ -1,20 +1,26 @@
 {
   "index": {
-    "name": "index"
+    "name": "index",
+    "relativePath": "/index.html"
   },
   "portraits": {
-    "name": "portraits"
+    "name": "portraits",
+    "relativePath": "/portraits.html"
   },
   "works": {
-    "name": "works"
+    "name": "works",
+    "relativePath": "/works.html"
   },
   "profile": {
-    "name": "profile"
+    "name": "profile",
+    "relativePath": "/profile.html"
   },
   "portraitsTemplate": {
-    "name": "portraits"
+    "name": "portraits",
+    "relativePath": "/portraits/<%- data.id %>.html"
   },
   "worksTemplate": {
-    "name": "works"
+    "name": "works",
+    "relativePath": "/works/<%- data.id %>.html"
   }
 }
