@@ -1,0 +1,25 @@
+<% var data = jsonData; %>
+<!doctype html>
+<html>
+  <%- include('partial/_head'); %>
+  <body>
+    <%- include('partial/_nav', {current: 'works'}); %>
+    <main>
+      <div class="container">
+        <div class="row">
+          <% var imgNum = data.imgNum; %>
+          <% for (var i = 1; i <= imgNum; i++) { %>
+          <div class="img-guard"><span class="guard-nopic"></span>
+            <img class="card-img　" src="/img/works/<%= data.id %>/<%= i %>.jpg" alt="<%= data.name + i %>"
+            oncontextmenu="return false;" onselectstart="return false;" onmousedown="return false;">
+          </div>
+          <% } %>
+          <p>
+            link: <a href="<%= data.site %>"><%= data.site %></a>
+          </p>
+        </div>
+      </div>
+    </main>
+    <%- include('partial/_footer'); %>
+  </body>
+</html>
