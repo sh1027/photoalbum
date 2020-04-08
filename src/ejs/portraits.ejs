@@ -1,10 +1,26 @@
-<!doctype html>
+<% var dataList = jsonDataList; %><!doctype html>
 <html>
   <%- include('partial/_head'); %>
   <body>
-    <%- include('partial/_nav', {current: 'portraits'}); %>
+    <%- include('partial/_nav', {
+      current: page.name
+    }); %>
     <main>
-
+      <div class="container">
+        <div class="row">
+          <% for (var i = dataList.length - 1; i >= 0; i--) { %>
+          <a href="<%- site.rootPath %>/portraits/<%- dataList[i].id %>.html">
+            <div class="card img-guard"><span class="guard-nopic"></span>
+              <img class="card-img" src="<%- site.rootPath %>/img/portraits/<%- dataList[i].id %>/1.jpg" alt="<%- dataList[i].name %>"
+              oncontextmenu="return false;" onselectstart="return false;" onmousedown="return false;">
+              <div class="card-img-overlay">
+                <h4 class="card-title"><%- dataList[i].name %></h4>
+              </div>
+            </div>
+          </a>
+          <% } %>
+        </div>
+      </div>
     </main>
     <%- include('partial/_footer'); %>
   </body>
