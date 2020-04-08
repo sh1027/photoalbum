@@ -11,15 +11,16 @@ const siteFile = './src/data/site.json',
       pageMetaList = JSON.parse(fs.readFileSync(pagesFile, 'utf8'))
 
 // watch
-gulp.task( "default", function() {
+gulp.task( "default", function(done) {
   gulp.watch("", gulp.parallel("index"));
   gulp.watch("", gulp.parallel("profile"));
   gulp.watch("", gulp.parallel("works"));
   gulp.watch("", gulp.parallel("portraits"));
+  done();
 });
 
 // Index EJS
-gulp.task("index", function() {
+gulp.task("index", function(done) {
   var ejsFile = './src/ejs/index.json'
 
   gulp.src([ejsFile])
