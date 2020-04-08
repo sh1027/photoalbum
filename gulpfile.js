@@ -12,16 +12,16 @@ const siteFile = './src/data/site.json',
 
 // watch
 gulp.task( "default", function(done) {
-  gulp.watch("", gulp.parallel("index"));
-  gulp.watch("", gulp.parallel("profile"));
-  gulp.watch("", gulp.parallel("works"));
-  gulp.watch("", gulp.parallel("portraits"));
+  gulp.watch("./src/ejs/*.ejs", gulp.parallel("index"));
+  gulp.watch("./src/ejs/*.ejs", gulp.parallel("profile"));
+  gulp.watch("./src/ejs/*.ejs", gulp.parallel("works"));
+  gulp.watch("./src/ejs/*.ejs", gulp.parallel("portraits"));
   done();
 });
 
 // Index EJS
 gulp.task("index", function(done) {
-  var ejsFile = './src/ejs/index.json'
+  var ejsFile = './src/ejs/index.ejs'
 
   gulp.src([ejsFile])
     .pipe(ejs({
@@ -36,7 +36,7 @@ gulp.task("index", function(done) {
 
 // Profile EJS
 gulp.task("profile", function(done) {
-  var ejsFile = './src/ejs/profile.json'
+  var ejsFile = './src/ejs/profile.ejs'
 
   gulp.src([ejsFile])
     .pipe(ejs({

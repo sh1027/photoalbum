@@ -3,15 +3,15 @@
     {
       "id": "01",
       "name": "mizuki",
-      "year": 2019,
-      "month": 09,
+      "year": "2019",
+      "month": "09",
       "imgNum": 9
     },
     {
       "id": "02",
       "name": "mina",
-      "year": 2019,
-      "month": 10,
+      "year": "2019",
+      "month": "10",
       "imgNum": 8
     }
   ]
