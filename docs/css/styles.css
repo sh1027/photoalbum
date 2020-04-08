@@ -13,13 +13,11 @@ img{
 }
 
 /* 画像の上の文字の中央配置 */
-.card-img-overlay {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  padding: 1.25rem;
+.card-img-overlay{
+  padding: 0;
+  top: calc(50% - 0.5rem);
+  text-align: center;
+  font-weight: bold;
 }
 
 /* 画像の保存防止用 */
