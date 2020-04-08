@@ -2,7 +2,9 @@
 <html>
   <%- include('partial/_head'); %>
   <body>
-    <%- include('partial/_nav', {current: 'index'}); %>
+    <%- include('partial/_nav', {
+      current: page.name
+    }); %>
     <main>
 
     </main>
