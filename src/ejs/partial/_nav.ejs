@@ -15,8 +15,7 @@
       <ul class="navbar-nav">
         <% for (var i = 0; i < pages.length - 1; i++) { %>
         <li <%- (current == 'pages[i].id') ? activeNavItem : navItem; %>>
-          <a class="nav-link" href="<%- site.rootPath %><%- pages[i].relativePath %>"><%- (i==0) ? 'Home' : pages[i].name.charAt(0).toUpperCase() + pages[i].name.slice(1) %>
-            <%- (current == 'pages[i].id') ? srCurrent : ''; %></a>
+          <a class="nav-link" href="<%- site.rootPath %><%- pages[i].relativePath %>"><%- (i==0) ? 'Home' : pages[i].name.charAt(0).toUpperCase() + pages[i].name.slice(1) %><%- (current == 'pages[i].id') ? srCurrent : ''; %></a>
         </li>
         <% } %>
       </ul>
