@@ -1,0 +1,15 @@
+<% var data = album; %><!doctype html>
+<html>
+  <%- include('partial/_head', {
+    pageId: data.id
+  }); %>
+  <body>
+    <%- include('partial/_nav', {
+      current: page.name
+    }); %>
+    <main>
+
+    </main>
+    <%- include('partial/_footer'); %>
+  </body>
+</html>

@@ -7,5 +7,8 @@
   "twitterCard": "summary_large_image",
   "twitterSite": "@sh_photo27",
   "icoIcon": "/img/*.ico",
-  "pngIcon": "/img/180×180.png"
+  "pngIcon": "/img/180×180.png",
+  "instagramAccount": "https://www.instagram.com/sh_photo27",
+  "twitterAccount": "https://www.twitter.com/sh_photo27",
+  "copyright": "2020 shiori"
 }

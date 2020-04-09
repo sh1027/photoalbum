@@ -1,0 +1,34 @@
+{
+  "pages": [
+    {
+      "id": "01",
+      "tag": "works",
+      "name": "Yurie Matsugi",
+      "work": "Bigakuseizukan",
+      "link": "https://bigakusei.com/binan-bijo/24719/",
+      "imgNum": 6
+    },
+    {
+      "id": "02",
+      "tag": "works",
+      "name": "Yurina Takagi",
+      "work": "Bigakuseizukan",
+      "link": "https://bigakusei.com/binan-bijo/24733/",
+      "imgNum": 5
+    },
+    {
+      "id": "03",
+      "tag": "portraits",
+      "name": "Yurie",
+      "date": "2019.09",
+      "imgNum": 6
+    },
+    {
+      "id": "04",
+      "tag": "portraits",
+      "name": "Yurina",
+      "date": "2019.09",
+      "imgNum": 5
+    }
+  ]
+}
