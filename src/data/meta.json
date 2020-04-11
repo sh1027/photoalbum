@@ -12,6 +12,19 @@
     "twitterAccount": "https://www.twitter.com/sh_photo27",
     "copyright": "2020 shiori"
   },
+  "devSite": {
+    "name": "shiori digital photo album",
+    "description": "Shiori Uedaによるdigitalな写真集です。主に東京都内でポートレート撮影をしています。楽しんで写真を見ていただければ幸いです。コンタクトは各種SNSのDMにてお願いします。",
+    "rootPath": "",
+    "rootUrl": "https://sh1027.github.io/photoalbum",
+    "twitterCard": "summary_large_image",
+    "twitterSite": "@sh_photo27",
+    "icoIcon": "/img/*.ico",
+    "pngIcon": "/img/180×180.png",
+    "instagramAccount": "https://www.instagram.com/sh_photo27",
+    "twitterAccount": "https://www.twitter.com/sh_photo27",
+    "copyright": "2020 shiori"
+  },
   "pages": [
     {
       "id": 0,

@@ -1,32 +1,75 @@
 // plugin
-const gulp = require('gulp'),
-      fs = require('fs'),
+const gulp = require('gulp');
+
+// plugin for ejs
+const fs = require('fs'),
       ejs = require('gulp-ejs'),
       rename = require('gulp-rename');
 
-// // json
-// const siteFile = './src/data/site.json',
-//       siteMeta = JSON.parse(fs.readFileSync(siteFile, 'utf8')),
-//       pagesFile = './src/data/pages.json'
-//       pageMetaList = JSON.parse(fs.readFileSync(pagesFile, 'utf8'))
+// plugin for sass
+const sass = require('gulp-sass'),
+      autoprefixer = require('gulp-autoprefixer');
 
-// // watch
-// gulp.task( "default", function(done) {
-//   gulp.watch("./src/ejs/*.ejs", gulp.parallel("index"));
-//   gulp.watch("./src/ejs/*.ejs", gulp.parallel("profile"));
-//   gulp.watch("./src/ejs/*.ejs", gulp.parallel("works"));
-//   gulp.watch("./src/ejs/*.ejs", gulp.parallel("portraits"));
-//   done();
-// });
+// plugin for gulptask
+const browsersync = require("browser-sync").create(),
+      gulpif = require('gulp-if'),
+      minimist = require('minimist');
+
+// development or production
+const envOption = {
+        string: 'env',
+        // default is development
+        default: { env: process.env.NODE_ENV || 'development' }
+      },
+      options = minimist(process.argv.slice(2), envOption);
+const isProduction = (options.env === 'production') ? true : false;
+
+//paths
+const paths = {
+  ejs: {
+    srcRoot: './src/ejs/',
+    src: './src/ejs/*.ejs',
+    dest: './docs/'
+  },
+  json: {
+    meta: './src/data/meta.json',
+    albums: './src/data/albums.json'
+  },
+  sass: {
+    src: './src/sass/*.scss',
+    dest: './docs/css/'
+  }
+}
+
+// sass
+function styles() {
+  return gulp
+  .src(paths.sass.src)
+  .pipe(gulpif(isProduction,
+    sass({
+      // productionなら圧縮
+      outputStyle: 'compressed'
+    }),
+    sass({
+      // developmentなら圧縮しない
+      outputStyle: 'expanded'
+    })
+  ))
+  .pipe(autoprefixer({
+    cascade: false,
+    grid: 'autoplace'
+  }))
+  .pipe(gulp.dest(paths.sass.dest))
+}
 
 // ejs
-gulp.task("ejs", function(done) {
-  const meta = JSON.parse(fs.readFileSync('./src/data/meta.json', 'utf8')),
-        siteMeta = meta.site,
-        pagesMeta = meta.pages,
-        albums = JSON.parse(fs.readFileSync('./src/data/albums.json', 'utf8')),
-        albumList = albums.pages
-        ejsPath = './src/ejs/';
+function html(done) {
+  const   metaObj = JSON.parse(fs.readFileSync(paths.json.meta, 'utf8')),
+          albumsObj = JSON.parse(fs.readFileSync(paths.json.albums, 'utf8')),
+          siteMeta = metaObj.site,
+          devSiteMeta = metaObj.devSite,
+          pagesMeta = metaObj.pages,
+          albumList = albumsObj.pages;
 
   var pageMeta,
       pageName,
@@ -37,140 +80,83 @@ gulp.task("ejs", function(done) {
     pageName = pageMeta.name
 
     if(!pageMeta.temp){
-      if(pageName=="albums"){
-        gulp.src(ejsPath+pageName+'.ejs')
-        .pipe(ejs({
+      gulp
+      .src(paths.ejs.srcRoot+pageName+'.ejs')
+      .pipe(gulpif(isProduction,
+        ejs({
           siteMeta: siteMeta,
           pageMeta: pageMeta,
           pagesMeta: pagesMeta,
           albumList: albumList
-        }))
-        .pipe(rename({extname: '.html'}))
-        .pipe(gulp.dest("./docs"));
-      }else{
-        gulp.src(ejsPath+pageName+'.ejs')
-        .pipe(ejs({
-          siteMeta: siteMeta,
+        }),
+        ejs({
+          siteMeta: devSiteMeta,
           pageMeta: pageMeta,
-          pagesMeta: pagesMeta
-        }))
-        .pipe(rename({extname: '.html'}))
-        .pipe(gulp.dest("./docs"));
-      }
+          pagesMeta: pagesMeta,
+          albumList: albumList
+        })
+      ))
+      .pipe(rename({
+        extname: '.html'
+      }))
+      .pipe(gulp.dest(paths.ejs.dest));
     }else{
       for (var i = 0; i < albumList.length; i++) {
         album = albumList[i]
 
-        gulp.src(ejsPath+pageName+'Template.ejs')
-          .pipe(ejs({
+        gulp
+        .src(paths.ejs.srcRoot+pageName+'Template.ejs')
+        .pipe(gulpif(isProduction,
+          ejs({
             siteMeta: siteMeta,
             pageMeta: pageMeta,
             pagesMeta: pagesMeta,
             album: album
-          }))
-          .pipe(rename(album.id + '.html'))
-          .pipe(gulp.dest('./docs/'+pageName));
-        }
+          }),
+          ejs({
+            siteMeta: devSiteMeta,
+            pageMeta: pageMeta,
+            pagesMeta: pagesMeta,
+            album: album
+          })
+        ))
+        .pipe(rename({
+          dirname: pageName,
+          basename: album.id,
+          extname: '.html'
+        }))
+        .pipe(gulp.dest(paths.ejs.dest));
+      }
     }
   }
 
   done();
+}
+
+// browsersync
+function browserSync(done){
+  browsersync.init({
+    server: {
+      baseDir: "./docs/"
+    },
+    notify: false
+  });
+  done();
+}
+
+//watch
+function watchFiles(done){
+  const browserReload = () => {
+    browsersync.reload();
+    done();
+  };
+  gulp.watch(paths.sass.src).on('change', gulp.series(styles, browserReload));
+  gulp.watch(paths.ejs.src).on('change', gulp.series(html, browserReload));
+}
+
+gulp.task('browser-reload', function (done){
+    browsersync.reload();
+    done();
 });
 
-// // Index EJS
-// gulp.task("index", function(done) {
-//   var ejsFile = './src/ejs/index.ejs'
-//
-//   gulp.src([ejsFile])
-//     .pipe(ejs({
-//       siteMeta: siteMeta,
-//       pageMeta: pageMetaList.index
-//     }))
-//     .pipe(rename({extname: '.html'}))
-//     .pipe(gulp.dest("./docs"));
-//
-//   done();
-// });
-//
-// // Profile EJS
-// gulp.task("profile", function(done) {
-//   var ejsFile = './src/ejs/profile.ejs'
-//
-//   gulp.src([ejsFile])
-//     .pipe(ejs({
-//       siteMeta: siteMeta,
-//       pageMeta: pageMetaList.profile
-//     }))
-//     .pipe(rename({extname: '.html'}))
-//     .pipe(gulp.dest("./docs"));
-//
-//   done();
-// });
-//
-// // Portraits EJS
-// gulp.task("portraits", function(done){
-//   var jsonFile = './src/data/portraits.json',
-//       listFile = './src/ejs/portraits.ejs',
-//       tempFile = './src/ejs/portraitsTemplate.ejs',
-//       json = JSON.parse(fs.readFileSync(jsonFile, 'utf8')),
-//       pages = json.pages,
-//       id;
-//
-//   gulp.src(listFile)
-//     .pipe(ejs({
-//       siteMeta: siteMeta,
-//       pageMeta: pageMetaList.portraits,
-//       jsonDataList: pages
-//     }))
-//     .pipe(rename({extname: '.html'}))
-//     .pipe(gulp.dest("./docs"));
-//
-//   for (var i = 0; i < pages.length; i++) {
-//     id = pages[i].id;
-//
-//     gulp.src(tempFile)
-//       .pipe(ejs({
-//         siteMeta: siteMeta,
-//         pageMeta: pageMetaList.portraitsTemplate,
-//         jsonData: pages[i]
-//       }))
-//       .pipe(rename(id + '.html'))
-//       .pipe(gulp.dest('./docs/portraits'));
-//   }
-//
-//   done();
-// });
-//
-// // Works EJS
-// gulp.task("works", function(done){
-//   var jsonFile = './src/data/works.json',
-//       listFile = './src/ejs/works.ejs',
-//       tempFile = './src/ejs/worksTemplate.ejs',
-//       json = JSON.parse(fs.readFileSync(jsonFile, 'utf8')),
-//       pages = json.pages,
-//       id;
-//
-//   gulp.src(listFile)
-//     .pipe(ejs({
-//       siteMeta: siteMeta,
-//       pageMeta: pageMetaList.works,
-//       jsonDataList: pages
-//     }))
-//     .pipe(rename({extname: '.html'}))
-//     .pipe(gulp.dest("./docs"));
-//
-//   for (var i = 0; i < pages.length; i++) {
-//     id = pages[i].id;
-//
-//     gulp.src(tempFile)
-//       .pipe(ejs({
-//         siteMeta: siteMeta,
-//         pageMeta: pageMetaList.worksTemplate,
-//         jsonData: pages[i]
-//       }))
-//       .pipe(rename(id + '.html'))
-//       .pipe(gulp.dest('./docs/works'));
-//   }
-//
-//   done();
-// });
+gulp.task('default', gulp.series(gulp.parallel(styles, html), gulp.series(browserSync, watchFiles)));
