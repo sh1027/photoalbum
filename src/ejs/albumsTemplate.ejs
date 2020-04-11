@@ -13,29 +13,28 @@
       current: page.name
     }); %>
     <main>
-      <div class="container-fluid mb-5 album">
-        <% for (var i = 1; i <= imgNum; i++) { %>
+      <div class="container-fluid my-5 album">
         <div class="row page">
           <div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 border-bottom border-dark">
-            <% if(i == 1) { %>
             <div class="album-title">
-              <h1><%- title %></h1>
+              <h1 class="text-center"><%- title %></h1>
             </div>
-            <% } %>
-            <div class="img-guard page-photo"><span class="guard-nopic"></span>
-              <img class="d-block mx-auto" src="<%- site.rootPath %>/img/albums/<%- data.id %>/<%- i %>.jpg" alt="<%- data.name + i %>"
-              oncontextmenu="return false;" onselectstart="return false;" onmousedown="return false;">
-            </div>
-            <% if(i == 1) { %>
             <div class="album-subtitle">
-              <p><%- subTitle %></p>
+              <p class="text-center"><%- subTitle %></p>
             </div>
             <div class="scroll">
               <a ref="#"><span></span>Scroll</a>
             </div>
-            <% } %>
           </div>
-
+        </div>
+        <% for (var i = 1; i <= imgNum; i++) { %>
+        <div class="row page">
+          <div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 border-bottom border-dark">
+            <div class="img-guard page-photo"><span class="guard-nopic"></span>
+              <img class="d-block mx-auto" src="<%- site.rootPath %>/img/albums/<%- data.id %>/<%- i %>.jpg" alt="<%- data.name + i %>"
+              oncontextmenu="return false;" onselectstart="return false;" onmousedown="return false;">
+            </div>
+          </div>
         </div>
         <% } %>
         <div class="row page my-3">
