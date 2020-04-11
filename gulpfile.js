@@ -28,7 +28,7 @@ const isProduction = (options.env === 'production') ? true : false;
 const paths = {
   ejs: {
     srcRoot: './src/ejs/',
-    src: './src/ejs/*.ejs',
+    src: './src/ejs/**/*.ejs',
     dest: './docs/'
   },
   json: {

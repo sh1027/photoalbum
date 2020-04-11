@@ -1,4 +1,9 @@
-<% var data = album; %><!doctype html>
+<% var data = album; %>
+<% var imgNum = data.imgNum; %>
+<% var title = data.name %>
+<% var subTitle %>
+<% data.tag == 'portraits' ? subTitle = data.date : subTitle = data.work; %>
+<!doctype html>
 <html>
   <%- include('partial/_head', {
     pageId: data.id
@@ -9,6 +14,32 @@
     }); %>
     <main>
       <div class="container-fluid my-5">
+        <% for (var i = 1; i <= imgNum; i++) { %>
+        <div class="row page">
+          <div class="col-12 col-md-6 offset-md-3">
+            <div class="img-guard"><span class="guard-nopic"></span>
+              <img class="d-block mx-auto" src="<%- site.rootPath %>/img/albums/<%- data.id %>/<%- i %>.jpg" alt="<%- data.name + i %>"
+              oncontextmenu="return false;" onselectstart="return false;" onmousedown="return false;">
+            </div>
+          </div>
+        </div>
+        <% } %>
+        <div class="row page my-3">
+          <div class="col-12 col-md-6 offset-md-3">
+            <p class="col-12 text-center"><%- subTitle %></p>
+            <p class="col-12 text-center">model: <%- title %></p>
+            <% if(data.tag == 'works') { %>
+              <p class="col-12 text-center">
+                link: <a href="<%- data.link %>"><%- data.link %></a>
+              </p>
+            <% } %>
+          </div>
+          <div class="col-12 position-relative bg-light">
+            <h2 class="text-center">Back to albums</h2>
+            <a href="<%- site.rootPath %><%- pages[1].relativePath %>" class="stretched-link"></a>
+          </div>
+        </div>
+
       </div>
     </main>
     <%- include('partial/_footer'); %>
