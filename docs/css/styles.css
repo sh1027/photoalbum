@@ -1,6 +1,42 @@
 body{
-	/* font-family: 'Lato', sans-serif; */
+	font-family: 'Montserrat', sans-serif;
 	font-size: 16px;
+}
+
+h1{
+	font-family: 'Sacramento', cursive;
+}
+
+.navbar-brand{
+	font-family: 'Sacramento', cursive;
+	font-size: 2rem;
+	margin-bottom: -0.5rem;
+	padding:0;
+}
+
+.navbar-expand .navbar-nav .nav-link{
+	padding-right: 0;
+	padding-left: 1rem;
+}
+
+.card{
+	border: none;
+}
+
+.wrapper {
+	width: 100%;
+	position: relative;
+	height: 100vh;
+	min-height: 100vh;
+  height: auto !important;
+	padding-bottom: 100px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
 }
 
 .profile-img{
@@ -19,7 +55,7 @@ img{
 }
 
 .page:first-child{
-	height: 50vh;
+	height: 100vh;
 }
 
 .page{
@@ -27,19 +63,25 @@ img{
   height: 80vh;
 }
 
+.album-title{
+	position: absolute;
+  top: 30%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
 .page-photo img{
 	max-height: 70vh;
   position: absolute;
   top: 50%;
-	left: 50%;
-	transform: translate(-50%,-50%);
+	transform: translateY(-50%);
 }
 
 
 /* scroll誘導 */
 .scroll a {
 	position: absolute;
-  bottom: 40px;
+  bottom: 15vh;
   left: 50%;
   z-index: 2;
   display: inline-block;
@@ -90,63 +132,10 @@ img{
   }
 }
 
-
-/* カードカラムのカラム数 */
-@media (min-width: 768px){
-  .card-columns-ex {
-    -webkit-column-count: 2;
-    column-count: 2;
-    -webkit-column-gap: 1.25rem;
-    column-gap: 1.25rem;
-    orphans: 1;
-    widows: 1;
-  }
-	.card-columns .card {
-    display: inline-block;
-    width: 100%;
-  }
-}
-
 /* 画像の上の文字の中央配置 */
 .card-img-overlay{
   padding: 0;
   top: calc(50% - 0.5rem);
   text-align: center;
   font-weight: bold;
-}
-
-/* ハンバーガーメニュー */
-.navbar-light .navbar-toggler {
-  color: rgba(0, 0, 0, 0.8);
-  border: none;
-  padding: 0px;
-  width: 30px;
-  height: 30px;
-  box-sizing: border-box;
-  position: relative;
-}
-.navbar-light .navbar-toggler-icon {
-  background-image:none; /* この行で背景画像を無効化 */
-  background-color: black;
-  width: 30px;
-  height: 2px;
-  display: block;
-  position: absolute;
-  transition: ease .5s;
-}
-
-.navbar-toggler-icon:nth-of-type(1) {top:7px;}
-.navbar-toggler-icon:nth-of-type(2) {top:14px;}
-.navbar-toggler-icon:nth-of-type(3) {top:21px;}
-
-.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:nth-of-type(1) {
-top:13px;
-transform: rotate(45deg);
-}
-.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:nth-of-type(2) {
-opacity: 0;
-}
-.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:nth-of-type(3) {
-top:13px;
-transform: rotate(-45deg);
 }

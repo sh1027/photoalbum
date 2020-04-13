@@ -2,14 +2,16 @@
 <html>
   <%- include('partial/_head'); %>
   <body>
-    <%- include('partial/_nav', {
-      current: page.name
-    }); %>
-    <main>
-      <div class="container-fluid my-5">
+    <div class="wrapper">
+      <%- include('partial/_nav', {
+        current: page.name
+      }); %>
+      <main>
+        <div class="container-fluid my-5">
 
-      </div>
-    </main>
-    <%- include('partial/_footer'); %>
+        </div>
+      </main>
+      <%- include('partial/_footer'); %>
+    </div>
   </body>
 </html>

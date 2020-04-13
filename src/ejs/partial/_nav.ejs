@@ -5,22 +5,15 @@
 <% var srCurrent = '<span class="sr-only">(current)</span>'; %>
 
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="<%- site.rootPath %>/index.html">Shiori</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-      <span class="navbar-toggler-icon"></span>
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-      <ul class="navbar-nav">
-        <% for (var i = 0; i < pages.length - 1; i++) { %>
-        <li <%- (current == 'pages[i].id') ? activeNavItem : navItem; %>>
-          <a class="nav-link" href="<%- site.rootPath %><%- pages[i].relativePath %>"><%- (i==0) ? 'Home' : pages[i].name.charAt(0).toUpperCase() + pages[i].name.slice(1) %><%- (current == 'pages[i].id') ? srCurrent : ''; %></a>
-        </li>
-        <% } %>
-      </ul>
-    </div>
+<nav class="navbar navbar-expand navbar-light bg-light sticky-top">
+  <a class="navbar-brand" href="<%- site.rootPath %>/index.html">Shiori</a>
+  <div class="navbar-collapse justify-content-end">
+    <ul class="navbar-nav">
+      <% for (var i = 1; i < pages.length - 1; i++) { %>
+      <li <%- (current == 'pages[i].id') ? activeNavItem : navItem; %>>
+        <a class="nav-link" href="<%- site.rootPath %><%- pages[i].relativePath %>"><%- pages[i].name.toUpperCase() %><%- (current == 'pages[i].id') ? srCurrent : ''; %></a>
+      </li>
+      <% } %>
+    </ul>
   </div>
 </nav>
