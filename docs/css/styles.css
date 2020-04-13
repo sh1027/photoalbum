@@ -1,3 +1,8 @@
+html{
+	overflow-x: hidden;
+	box-sizing: border-box;
+}
+
 body{
 	font-family: 'Montserrat', sans-serif;
 }
@@ -15,6 +20,11 @@ h2{
 h3{
 	font-family: 'Sacramento', cursive;
 	font-size: 1.618rem;
+}
+
+.strong{
+	font-weight: 400;
+	font-size: 1.1rem;
 }
 
 .navbar-brand{
@@ -146,7 +156,6 @@ img{
 /* 画像の上の文字の中央配置 */
 .card-img-overlay{
   padding: 0;
-  top: calc(50% - 0.5rem);
+  top: calc(50% - 2rem);
   text-align: center;
-  font-weight: bold;
 }
