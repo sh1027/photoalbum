@@ -10,8 +10,8 @@
   <div class="navbar-collapse justify-content-end">
     <ul class="navbar-nav">
       <% for (var i = 1; i < pages.length - 1; i++) { %>
-      <li <%- (current == 'pages[i].id') ? activeNavItem : navItem; %>>
-        <a class="nav-link" href="<%- site.rootPath %><%- pages[i].relativePath %>"><%- pages[i].name.toUpperCase() %><%- (current == 'pages[i].id') ? srCurrent : ''; %></a>
+      <li <%- (current == pages[i].id) ? activeNavItem : navItem; %>>
+        <a class="nav-link" href="<%- site.rootPath %><%- pages[i].relativePath %>"><%- pages[i].name.toUpperCase() %><%- (current == pages[i].id) ? srCurrent : ''; %></a>
       </li>
       <% } %>
     </ul>

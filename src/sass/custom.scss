@@ -5,6 +5,11 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
+$headings-line-height: 1.5;
+$line-height-base: 1.8;
+$letter-spacing: 1rem;
+$text-align: justify;
+
 // Required
 @import "../../node_modules/bootstrap/scss/functions";
 @import "../../node_modules/bootstrap/scss/variables";

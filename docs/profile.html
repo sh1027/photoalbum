@@ -54,8 +54,8 @@
         <a class="nav-link" href="/photoalbum/albums.html">ALBUMS</a>
       </li>
       
-      <li class="nav-item">
-        <a class="nav-link" href="/photoalbum/profile.html">PROFILE</a>
+      <li class="nav-item active">
+        <a class="nav-link" href="/photoalbum/profile.html">PROFILE<span class="sr-only">(current)</span></a>
       </li>
       
     </ul>
@@ -63,16 +63,20 @@
 </nav>
 
       <main>
-        <div class="container-fluid my-5">
+        <div class="container-fluid">
           <div class="row">
-            <div class="col-12 col-md-4 img-guard"><span class="guard-nopic"></span>
-              <img class="d-block mx-auto rounded-circle mb-5 profile-img" src="/photoalbum/img/profile.jpg" alt="profile"
-              oncontextmenu="return false;" onselectstart="return false;" onmousedown="return false;">
+            <div class="col-12">
+              <div class="img-guard my-5"><span class="guard-nopic"></span>
+                <img class="d-block mx-auto rounded-circle profile-img" src="/photoalbum/img/profile.jpg" alt="profile"
+                oncontextmenu="return false;" onselectstart="return false;" onmousedown="return false;">
+              </div>
             </div>
-            <div class="col-12 col-md-8">
-              <h1 class="text-center">Shiori Ueda</h1>
+          </div>
+          <div class="row">
+            <div class="col-10 offset-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+              <h1 class="text-center mb-5">Shiori Ueda</h1>
               <div>
-                <h2>Profile</h2>
+                <h2 class="text-center mb-3">Profile</h2>
                 <p>
                   1999年生まれ。慶應義塾大学理工学部に在籍中。<br>
                   2018年の秋頃から写真を始め、写真の虜となってしまいました。
@@ -84,8 +88,8 @@
                   <a href="https://www.twitter.com/sh_photo27">twitter</a>
                 </p>
               </div>
-              <div>
-                <h2>About this site</h2>
+              <div class="mt-5">
+                <h2 class="text-center mb-3">About this site</h2>
                 <p>
                   このサイトは Shiori Ueda によるギャラリーサイトです。
                   「digitalな、自分の写真集を作ってみたい」という思いでこのサイトを制作しました。
