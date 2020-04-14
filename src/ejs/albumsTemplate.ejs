@@ -18,8 +18,8 @@
           <div class="row page">
             <div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 border-bottom border-dark">
               <div class="album-title">
-                <h1 class="text-center"><%- title %></h1>
-                <p class="text-center"><%- subTitle %></p>
+                <h1><%- title %></h1>
+                <p><%- subTitle %></p>
               </div>
               <div class="scroll">
                 <a ref="#"><span></span>Scroll</a>
@@ -30,7 +30,7 @@
           <div class="row page">
             <div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 border-bottom border-dark">
               <div class="img-guard page-photo"><span class="guard-nopic"></span>
-                <img class="d-block mx-auto" src="<%- site.rootPath %>/img/albums/<%- data.id %>/<%- i %>.jpg" alt="<%- data.name + i %>"
+                <img src="<%- site.rootPath %>/img/albums/<%- data.id %>/<%- i %>.jpg" alt="<%- data.name + i %>"
                 oncontextmenu="return false;" onselectstart="return false;" onmousedown="return false;">
               </div>
             </div>
@@ -38,10 +38,10 @@
           <% } %>
           <div class="row page">
             <div class="col-12 col-md-6 offset-md-3">
-              <p class="col-12 text-center"><%- subTitle %></p>
-              <p class="col-12 text-center">Model: <%- title %></p>
+              <p class="col-12"><%- subTitle %></p>
+              <p class="col-12">Model: <%- title %></p>
               <% if(data.tag == 'works') { %>
-              <p class="col-12 text-center">
+              <p class="col-12">
                 Link: <a href="<%- data.link %>"><%- data.link %></a>
               </p>
               <% } %>

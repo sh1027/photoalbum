@@ -62,6 +62,7 @@ h3{
 
 img{
 	max-width: 100%;
+	max-height: 70vh;
 }
 
 .album {
@@ -77,6 +78,7 @@ img{
 .page{
 	scroll-snap-align: start;
   height: 80vh;
+	text-align: center;
 }
 
 .album-title{
@@ -86,13 +88,12 @@ img{
 	transform: translate(-50%, -50%);
 }
 
-.page-photo img{
-	max-height: 70vh;
-  position: absolute;
+.page-photo{
+  position: relative;
   top: 50%;
-	transform: translateY(-50%);
+	left: 50%;
+	transform: translate(-50%,-50%);
 }
-
 
 /* scroll誘導 */
 .scroll a {
