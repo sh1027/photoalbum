@@ -13,21 +13,23 @@
             <div class="col-12">
               <h1 class="text-center my-5">Albums</h1>
             </div>
-            <div class="row">
-              <% for (var i = dataList.length - 1; i >= 0; i--) { %>
-              <% data = dataList[i]; %>
-              <div class="card mb-3 px-2 col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-0">
-                <div class="img-guard"><span class="guard-nopic"></span>
-                  <img src="<%- site.rootPath %>/img/<%- page.name %>/<%- data.id %>/1.jpg" alt="album<%- data.id %>"
-                  oncontextmenu="return false;" onselectstart="return false;" onmousedown="return false;">
+            <div class="col-12">
+              <div class="row">
+                <% for (var i = dataList.length - 1; i >= 0; i--) { %>
+                <% data = dataList[i]; %>
+                <div class="card col-12 mb-3 px-0 col-md-8 offset-md-2 col-lg-6 offset-lg-0 px-lg-2">
+                  <div class="img-guard"><span class="guard-nopic"></span>
+                    <img src="<%- site.rootPath %>/img/<%- page.name %>/<%- data.id %>/1.jpg" alt="album<%- data.id %>"
+                    oncontextmenu="return false;" onselectstart="return false;" onmousedown="return false;">
+                  </div>
+                  <div class="card-img-overlay">
+                    <h1 class="card-title"><%- data.name %></h1>
+                    <p class="card-text"><%- (data.tag == 'works') ? data.work : data.date; %></p>
+                  </div>
+                  <a href="<%- site.rootPath %>/<%- page.name %>/<%- data.id %>.html" class="stretched-link"></a>
                 </div>
-                <div class="card-img-overlay">
-                  <h1 class="card-title"><%- data.name %></h1>
-                  <p class="card-text"><%- (data.tag == 'works') ? data.work : data.date; %></p>
-                </div>
-                <a href="<%- site.rootPath %>/<%- page.name %>/<%- data.id %>.html" class="stretched-link"></a>
+                <% } %>
               </div>
-              <% } %>
             </div>
           </div>
         </div>
