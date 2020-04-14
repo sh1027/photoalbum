@@ -66,8 +66,8 @@ img{
 }
 
 .album {
-  overflow: auto;
-  scroll-snap-type: y proximity;
+	overflow: scroll;
+  scroll-snap-type: y mandatory;
   height: 100vh;
 }
 
@@ -76,7 +76,7 @@ img{
 }
 
 .page{
-	scroll-snap-align: start;
+	scroll-snap-align: center;
   height: 80vh;
 	text-align: center;
 }
@@ -93,6 +93,19 @@ img{
   top: 50%;
 	left: 50%;
 	transform: translate(-50%,-50%);
+}
+
+.page-num{
+	position: absolute;
+	margin: 0;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	font-size: 0.8rem;
+}
+
+.back{
+	line-height: 3.0rem;
 }
 
 /* scroll誘導 */

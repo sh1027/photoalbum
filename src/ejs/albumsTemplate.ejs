@@ -9,14 +9,14 @@
     pageId: data.id
   }); %>
   <body>
-    <div>
+    <div class="album">
       <%- include('partial/_nav', {
         current: page.id
       }); %>
       <main>
-        <div class="container-fluid album">
+        <div class="container-fluid">
           <div class="row page">
-            <div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 border-bottom border-dark">
+            <div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 border-bottom border-light">
               <div class="album-title">
                 <h1><%- title %></h1>
                 <p><%- subTitle %></p>
@@ -28,29 +28,30 @@
           </div>
           <% for (var i = 1; i <= imgNum; i++) { %>
           <div class="row page">
-            <div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 border-bottom border-dark">
+            <div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 border-bottom border-light">
               <div class="img-guard page-photo"><span class="guard-nopic"></span>
                 <img src="<%- site.rootPath %>/img/albums/<%- data.id %>/<%- i %>.jpg" alt="<%- data.name + i %>"
                 oncontextmenu="return false;" onselectstart="return false;" onmousedown="return false;">
               </div>
+              <p class="page-num"><%- ( '00' + i ).slice( -2 ); %></p>
             </div>
           </div>
           <% } %>
           <div class="row page">
-            <div class="col-12 col-md-6 offset-md-3">
-              <p class="col-12"><%- subTitle %></p>
-              <p class="col-12">Model: <%- title %></p>
+            <div class="col-12 col-md-6 offset-md-3 align-self-end">
+              <p><%- subTitle %></p>
+              <p>Model: <%- title %></p>
               <% if(data.tag == 'works') { %>
-              <p class="col-12">
+              <p>
                 Link: <a href="<%- data.link %>"><%- data.link %></a>
               </p>
               <% } %>
             </div>
-            <div class="col-12 position-relative bg-light">
-              <h3 class="text-center back">Back to albums</h3>
-              <a href="<%- site.rootPath %><%- pages[1].relativePath %>" class="stretched-link"></a>
-            </div>
-            <div class="col-12">
+            <div class="col-12 col-md-6 offset-md-3 align-self-end py-5 px-0">
+              <div class="position-relative bg-light mb-5">
+                <h3 class="text-center back my-0 pt-1">Back to albums</h3>
+                <a href="<%- site.rootPath %><%- pages[1].relativePath %>" class="stretched-link"></a>
+              </div>
               <%- include('partial/_footer_content'); %>
             </div>
           </div>
