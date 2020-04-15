@@ -2,16 +2,23 @@
 <html>
   <%- include('partial/_head'); %>
   <body>
-    <div class="wrapper">
-      <%- include('partial/_nav', {
-        current: page.id
-      }); %>
+    <div class="wrapper p-0">
       <main>
-        <div class="container-fluid my-5">
-          
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-12 text-center" style="height: 70vh;">
+              <div class="site-title">
+                <h1>Shiori</h1>
+                <h2>DIGITAL PHOTO ALBUM</h2>
+              </div>
+            </div>
+            <div class="col-12 text-center" style="height: 30vh;">
+              <a class="btn btn-default open" href="<%- site.rootPath %>/albums.html" role="button">Open →</a>
+            </div>
+          </div>
         </div>
       </main>
-      <%- include('partial/_footer'); %>
     </div>
+    <%- include('partial/_footer_js'); %>
   </body>
 </html>

@@ -17,6 +17,26 @@ h3{
 	font-size: 1.618rem;
 }
 
+.site-title{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.site-title h1{
+	font-size: 4.236rem;
+}
+
+.open {
+	display: inline;
+	padding: 0.375rem 1.75rem;
+  border: 1px solid;
+  border-radius: 3em .5em 2em .5em/.4em 2em .5em 3em;
+	font-size: 1.618rem;
+	margin: 20% 0;
+}
+
 .strong{
 	font-weight: 400;
 	font-size: 1.1rem;
@@ -177,7 +197,12 @@ img{
 
 /* 画像の上の文字の中央配置 */
 .card-img-overlay{
-  padding: 0;
+  padding: 0 10%;
   top: calc(50% - 2rem);
   text-align: center;
+}
+
+.card-img-overlay h1, .card-img-overlay p{
+	margin: 0;
+	background-color: rgba(255, 255, 255, 0.5);
 }
