@@ -1,3 +1,4 @@
-// $(function() {
-//   $('#fadeIn').fadeIn(2000);
-// });
+window.onload = function() {
+  const spinner = document.getElementById('loading');
+  spinner.classList.add('loaded');
+}
