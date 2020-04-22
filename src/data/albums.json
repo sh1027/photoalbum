@@ -9,6 +9,20 @@
     },
     {
       "id": "02",
+      "tag": "portraits",
+      "name": "Kanako & Akanen",
+      "date": "2019.11",
+      "imgNum": 13
+    },
+    {
+      "id": "03",
+      "tag": "portraits",
+      "name": "Akanen",
+      "date": "2019.12",
+      "imgNum": 9
+    },
+    {
+      "id": "04",
       "tag": "works",
       "name": "Yurie Matsugi",
       "work": "Bigakuseizukan",
@@ -17,7 +31,7 @@
 
     },
     {
-      "id": "03",
+      "id": "05",
       "tag": "works",
       "name": "Yurina Takagi",
       "work": "Bigakuseizukan",

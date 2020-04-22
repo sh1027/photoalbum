@@ -1,4 +1,9 @@
-window.onload = function() {
-  const spinner = document.getElementById('loading');
-  spinner.classList.add('loaded');
-}
+$(function(){
+   $(window).on('load',function(){
+     $("#loading").fadeOut('slow');
+   });
+   function loaderClose(){
+     $("#loading").fadeOut('slow');
+   }
+   setTimeout(loaderClose,10000);
+});
