@@ -1,12 +1,1 @@
-$(function(){
-   $(window).on('load',function(){
-     $("#loading").fadeOut('slow');
-   });
-   function loaderClose(){
-     $("#loading").fadeOut('slow');
-   }
-   setTimeout(loaderClose,10000);
-});
-
-let vh = window.innerHeight * 0.01;
-document.documentElement.style.setProperty('--vh', `${vh}px`);
+$(function(){$(window).on("load",function(){$("#loading").fadeOut("slow")}),setTimeout(function(){$("#loading").fadeOut("slow")},1e4)}),$(document).ready(function(){var i=$(window).height();$(".window-height").height(i)}),$(window).resize(function(){var i=$(window).height();$(".window-height").height(i)});

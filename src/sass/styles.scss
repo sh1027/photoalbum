@@ -34,9 +34,14 @@ img{
 	pointer-events: none;
 }
 
+@media screen and (min-width: 960px) { // スマホとタブレット以外はこっちを適用
+	.window-height{
+		height: 100vh !important; // !importantを使用し、jQueryを打ち消し
+	}
+}
+
 #loading {
   width: 100vw;
-  height: 100vh;
   position: fixed;
   top: 0;
   left: 0;
@@ -46,8 +51,6 @@ img{
 .wrapper {
 	width: 100%;
 	position: relative;
-	height: 100vh;
-	min-height: 100vh;
   height: auto !important;
 	padding-bottom: 100px;
 }
@@ -107,7 +110,6 @@ img{
 	overflow-y: scroll;
 	overflow-x: hidden;
   scroll-snap-type: y mandatory;
-  height: 100vh;
 	width: 100%;
 	position: relative;
   &-title{
@@ -129,7 +131,6 @@ img{
   height: 80vh;
 	text-align: center;
   &:first-child{
-    height: 100vh;
   	background-repeat: repeat-x;
   	background-position: center;
   	background-size: auto 100%;

@@ -10,6 +10,14 @@ const fs = require('fs'),
 const sass = require('gulp-sass'),
       autoprefixer = require('gulp-autoprefixer');
 
+//plugin for js
+const uglify = require('gulp-uglify')
+
+// plugin for imagemin
+const imagemin = require('gulp-imagemin'),
+      mozjpeg  = require('imagemin-mozjpeg'),
+      changed  = require('gulp-changed');
+
 // plugin for gulptask
 const browsersync = require("browser-sync").create(),
       gulpif = require('gulp-if'),
@@ -38,6 +46,14 @@ const paths = {
   sass: {
     src: './src/sass/*.scss',
     dest: './docs/css/'
+  },
+  js: {
+    src: './src/js/*.js',
+    dest: './docs/js/'
+  },
+  img: {
+    src: './src/img/**/*.jpg',
+    dest: './docs/img/albums/'
   }
 }
 
@@ -133,6 +149,29 @@ function html(done) {
   done();
 }
 
+// js
+function scripts() {
+  return gulp
+  .src(paths.js.src)
+  .pipe(uglify())
+  .pipe(gulp.dest(paths.js.dest));
+}
+
+// imagemin
+function imageMin() {
+  return gulp
+  .src(paths.img.src, {
+    base: 'src/img/'
+  })
+  .pipe(changed(paths.img.src))
+  .pipe(imagemin([
+      mozjpeg({
+        quality: 80,
+      }),
+    ]))
+  .pipe(gulp.dest(paths.img.dest));
+}
+
 // browsersync
 function browserSync(done){
   browsersync.init({
@@ -152,6 +191,8 @@ function watchFiles(done){
   };
   gulp.watch(paths.sass.src).on('change', gulp.series(styles, browserReload));
   gulp.watch(paths.ejs.src).on('change', gulp.series(html, browserReload));
+  gulp.watch(paths.js.src).on('change', gulp.series(scripts, browserReload));
+  gulp.watch(paths.img.src).on('change', gulp.series(imageMin, browserReload));
 }
 
 gulp.task('browser-reload', function (done){
@@ -159,4 +200,4 @@ gulp.task('browser-reload', function (done){
     done();
 });
 
-gulp.task('default', gulp.series(gulp.parallel(styles, html), gulp.series(browserSync, watchFiles)));
+gulp.task('default', gulp.series(gulp.parallel(styles, html, scripts, imageMin), gulp.series(browserSync, watchFiles)));
