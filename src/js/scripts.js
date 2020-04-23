@@ -5,7 +5,7 @@ $(function(){
    function loaderClose(){
      $("#loading").fadeOut('slow');
    }
-   setTimeout(loaderClose,10000);
+   setTimeout(loaderClose,2000);
 });
 //
 // let vh = window.innerHeight * 0.01;
