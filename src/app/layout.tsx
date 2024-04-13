@@ -1,10 +1,8 @@
 import Footer from "@/components/Footer";
+import { noto_sans, noto_sans_jp } from "@/components/fonts";
 import { GoogleTagManager } from "@next/third-parties/google";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Photography | Shiori Ueda",
@@ -19,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <GoogleTagManager gtmId="G-HD5WRPKN72" />
-      <body className={inter.className}>
+      <body className={`${noto_sans.className} ${noto_sans_jp.className}`}>
         {children}
         <Footer />
       </body>
