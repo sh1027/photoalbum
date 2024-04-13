@@ -6,10 +6,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { SiInstagram } from "react-icons/si";
+import { raleway } from "@/components/fonts";
 
 const profileData = profileJson.data;
 
-const mainlogo = { name: "Shiori", href: "/" };
+const mainlogo = { name: "SHIORI", href: "/" };
 const links = [
   { name: "Albums", href: "/albums" },
   { name: "Profile", href: "/profile" },
@@ -40,7 +41,7 @@ export default function Nav() {
             href={mainlogo.href}
             className="h-8 w-auto"
           >
-            <span className="font-semibold text-xl tracking-tight">
+            <span className={`${raleway.className} text-2xl tracking-tight`}>
               {mainlogo.name}
             </span>
           </Link>
