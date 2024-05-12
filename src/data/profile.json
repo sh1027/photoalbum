@@ -1,19 +1,19 @@
 {
-    "data": {
-        "name": "Shiori Ueda",
-        "name_ja": "上田 栞",
-        "imgPath": "/profile_cam.webp",
-        "description": "I am a photographer based in Tokyo. I started photography as a hobby in 2018 and quickly became passionate about it. I have been working as a cameraman for a [web media]('https://bigakusei.com/cameraman/ueda-shiori/') since 2020. I am deeply fascinated by capturing the beauty of natural light, which has the power to transform ordinary scenes into extraordinary ones! The purpose of this website is to showcase a digital collection of my favorite works. I hope you enjoy my photographs.",
-        "contact": "Please contact me via [Instagram]('https://www.instagram.com/sh_photo27') DM for any inquiries.",
-        "links": [
-            {
-                "title": "Instagram",
-                "url": "https://www.instagram.com/sh_photo27"
-            },
-            {
-                "title": "Interview (in Japanese)",
-                "url": "https://blog.bigakusei.com/?p=11483"
-            }
-        ]
-    }
+  "data": {
+    "name": "Shiori Ueda",
+    "name_ja": "上田 栞",
+    "imgPath": "profile.webp",
+    "description": "I am a photographer based in Tokyo. I started photography as a hobby in 2018 and quickly became passionate about it. I have been working as a cameraman for a [web media]('https://bigakusei.com/cameraman/ueda-shiori/') since 2020. I am deeply fascinated by capturing the beauty of natural light, which has the power to transform ordinary scenes into extraordinary ones! The purpose of this website is to showcase a digital collection of my favorite works. I hope you enjoy my photographs.",
+    "contact": "Please contact me via [Instagram]('https://www.instagram.com/sh_photo27') DM for any inquiries.",
+    "links": [
+      {
+        "title": "Instagram",
+        "url": "https://www.instagram.com/sh_photo27"
+      },
+      {
+        "title": "Interview (in Japanese)",
+        "url": "https://blog.bigakusei.com/?p=11483"
+      }
+    ]
+  }
 }
